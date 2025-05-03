@@ -1,4 +1,6 @@
 import React from "react";
+import "@/global.css";
+import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import {
   FaCheckCircle,
   FaExclamationTriangle,
@@ -31,19 +33,19 @@ const Alert = ({ type = "success", title, message }) => {
     alertStyles[type] || alertStyles.success;
 
   return (
-    <div
-      className={`rounded-xl border ${borderColor} ${bgColor} p-4 w-[250px]`}
-    >
-      <div className="flex items-start gap-2">
-        {icon}
-        <div className="flex-1">
-          <strong className={`block text-sm font-semibold ${textColor}`}>
-            {title}
-          </strong>
-          <p className="mt-1 text-xs text-gray-700">{message}</p>
+    <GluestackUIProvider mode="light"><div
+        className={`rounded-xl border ${borderColor} ${bgColor} p-4 w-[250px]`}
+      >
+        <div className="flex items-start gap-2">
+          {icon}
+          <div className="flex-1">
+            <strong className={`block text-sm font-semibold ${textColor}`}>
+              {title}
+            </strong>
+            <p className="mt-1 text-xs text-gray-700">{message}</p>
+          </div>
         </div>
-      </div>
-    </div>
+      </div></GluestackUIProvider>
   );
 };
 
